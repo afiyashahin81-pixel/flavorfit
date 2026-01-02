@@ -813,7 +813,7 @@ const recipes = [
         healthScore: 92,
         ingredients: ["banana", "berries", "almond milk", "oats", "nuts"],
         allergies: ["nuts"],
-        image: "./images1/bowl.jpeg",
+        image: "bowl.jpeg",
         tags: ["Vegan", "Breakfast", "Healthy"]
     },
     {
@@ -829,7 +829,7 @@ const recipes = [
         healthScore: 70,
         ingredients: ["beans", "lettuce", "tomato", "bun", "avocado"],
         allergies: ["gluten", "soy"],
-        image: "./images1/burger.jpeg",
+        image: "burger.jpeg",
         tags: ["Vegan", "Burger", "Plant-Based"]
     },
     {
@@ -845,7 +845,7 @@ const recipes = [
         healthScore: 68,
         ingredients: ["flour", "almond milk", "banana", "maple syrup"],
         allergies: ["gluten", "nuts"],
-        image: "./images1/pancakes.jpeg",
+        image: "pancakes.jpeg",
         tags: ["Vegan", "Breakfast", "Fluffy"]
     },
     {
@@ -861,7 +861,7 @@ const recipes = [
         healthScore: 62,
         ingredients: ["vegetables", "butter", "bread", "tomato"],
         allergies: ["dairy"],
-        image: "./images1/jain.jpeg",
+        image: "jain.jpeg",
         tags: ["Jain", "Street Food", "No Onion-Garlic"]
     },
     {
@@ -877,7 +877,7 @@ const recipes = [
         healthScore: 58,
         ingredients: ["cheese", "tomato", "bell pepper", "basil", "flour"],
         allergies: ["dairy", "gluten"],
-        image: "./images1/jainp.jpeg",
+        image: "jainp.jpeg",
         tags: ["Jain", "Pizza", "No Onion-Garlic"]
     },
     {
@@ -893,7 +893,7 @@ const recipes = [
         healthScore: 75,
         ingredients: ["rice", "vegetables", "ghee", "cumin"],
         allergies: ["dairy"],
-        image: "./images1/jainpu.jpeg",
+        image: "jainpu.jpeg",
         tags: ["Jain", "Rice", "Comfort Food"]
     },
     {
@@ -909,7 +909,7 @@ const recipes = [
         healthScore: 65,
         ingredients: ["bread", "cheese", "tomato", "cucumber", "butter"],
         allergies: ["dairy", "gluten"],
-        image: "./images1/jains.jpeg",
+        image: "jains.jpeg",
         tags: ["Jain", "Quick", "No Onion-Garlic"]
     },
     {
@@ -925,7 +925,7 @@ const recipes = [
         healthScore: 60,
         ingredients: ["pasta", "tomato", "cheese", "basil", "olive oil"],
         allergies: ["dairy", "gluten"],
-        image: "./images1/jainpasta.jpeg",
+        image: "jainpasta.jpeg",
         tags: ["Jain", "Italian", "Pasta"]
     },
     {
@@ -941,7 +941,7 @@ const recipes = [
         healthScore: 72,
         ingredients: ["rice", "dal", "vegetables", "roti", "ghee"],
         allergies: ["dairy"],
-        image: "./images1/thali.jpeg",
+        image: "thali.jpeg",
         tags: ["Jain", "Traditional", "Complete Meal"]
     },
     {
@@ -957,7 +957,7 @@ const recipes = [
         healthScore: 85,
         ingredients: ["chickpea flour", "yogurt", "lemon", "mustard seeds"],
         allergies: ["dairy"],
-        image: "./images1/dhokla.jpeg",
+        image: "dhokla.jpeg",
         tags: ["Jain", "Gujarati", "Steamed"]
     }
  ];
