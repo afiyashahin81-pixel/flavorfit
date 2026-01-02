@@ -108,7 +108,7 @@ const recipes = [
         calories: 420,
         healthScore: 72,
         ingredients: ["paneer", "yogurt", "bell pepper", "onion"],
-        image: "./images/paneer.jpeg",
+        image: "paneer.jpeg",
         allergies: ["dairy"],
         tags: ["North Indian", "Weekend", "Vegetarian"]
     },
@@ -124,7 +124,7 @@ const recipes = [
         calories: 380,
         healthScore: 68,
         ingredients: ["egg", "tomato", "onion", "coconut"],
-        image: "./images/eggcurry.jpeg",
+        image: "eggcurry.jpeg",
         allergies: ["nuts"],
         tags: ["South Indian", "Lunch", "Non-Veg"]
     },
@@ -140,7 +140,7 @@ const recipes = [
         calories: 450,
         healthScore: 65,
         ingredients: ["cheese", "tomato", "basil"],
-        image: "./images/pizza.jpeg",
+        image: "pizza.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Italian", "Weekend", "Pizza"]
     },
@@ -156,7 +156,7 @@ const recipes = [
         calories: 220,
         healthScore: 88,
         ingredients: ["rice", "lentils", "vegetables"],
-        image: "./images/idli.jpeg",
+        image: "idli.jpeg",
         allergies: [],
         tags: ["South Indian", "Breakfast", "Healthy"]
         },  // ← Make sure previous recipe ends with comma
@@ -172,7 +172,7 @@ const recipes = [
         calories: 520,
         healthScore: 62,
         ingredients: ["chicken", "butter", "tomato", "cream", "onion"],
-        image: "./images/butterchicken.jpeg",
+        image: "butterchicken.jpeg",
         allergies: ["dairy"],
         tags: ["North Indian", "Dinner", "Non-Veg"]
     },
@@ -188,7 +188,7 @@ const recipes = [
         calories: 280,
         healthScore: 82,
         ingredients: ["paneer", "spinach", "onion", "tomato", "cream"],
-        image: "./images/palakpaneer.jpeg",
+        image: "palakpaneer.jpeg",
         allergies: ["dairy"],
         tags: ["North Indian", "Healthy", "Vegetarian"]
     },
@@ -204,7 +204,7 @@ const recipes = [
         calories: 580,
         healthScore: 58,
         ingredients: ["chickpeas", "flour", "onion", "tomato", "yogurt"],
-        image: "./images/poori.jpeg",
+        image: "poori.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["North Indian", "Weekend", "Street Food"]
     },
@@ -220,7 +220,7 @@ const recipes = [
         calories: 320,
         healthScore: 78,
         ingredients: ["rice", "lentils", "vegetables", "tamarind", "curry leaves"],
-        image: "./images/sambarrice.jpeg",
+        image: "sambarrice.jpeg",
         allergies: [],
         tags: ["South Indian", "Comfort Food", "Healthy"]
     },
@@ -236,7 +236,7 @@ const recipes = [
         calories: 380,
         healthScore: 55,
         ingredients: ["potato", "bread", "flour", "chili", "garlic"],
-        image: "./images/pav.jpeg",
+        image: "pav.jpeg",
         allergies: ["gluten"],
         tags: ["Street Food", "Quick", "Mumbai Special"]
     },
@@ -252,7 +252,7 @@ const recipes = [
         calories: 450,
         healthScore: 60,
         ingredients: ["cheese", "tomato", "basil", "flour", "olive oil"],
-        image: "./images/pizza.jpeg",
+        image: "pizza.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Italian", "Weekend", "Pizza"]
     },
@@ -268,7 +268,7 @@ const recipes = [
         calories: 520,
         healthScore: 63,
         ingredients: ["pasta", "meat", "tomato", "onion", "garlic"],
-        image: "./images/spagati.jpeg",
+        image: "spagati.jpeg",
         allergies: ["gluten"],
         tags: ["Italian", "Dinner", "Pasta"]
     },
@@ -284,7 +284,7 @@ const recipes = [
         calories: 650,
         healthScore: 55,
         ingredients: ["pasta", "cheese", "meat", "tomato", "cream"],
-        image: "./images/lasagna.jpeg",
+        image: "lasagna.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Italian", "Weekend", "Baked"]
     },
@@ -300,7 +300,7 @@ const recipes = [
         calories: 420,
         healthScore: 68,
         ingredients: ["chicken", "tortilla", "lettuce", "tomato", "cheese"],
-        image: "./images/chickentacos.jpeg",
+        image: "chickentacos.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Mexican", "Quick", "Non-Veg"]
     },
@@ -316,7 +316,7 @@ const recipes = [
         calories: 380,
         healthScore: 62,
         ingredients: ["cheese", "tortilla", "bell pepper", "onion", "beans"],
-        image: "./images/dilla.jpeg",
+        image: "dilla.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Mexican", "Quick", "Easy"]
     },
@@ -332,7 +332,7 @@ const recipes = [
         calories: 480,
         healthScore: 75,
         ingredients: ["rice", "beans", "lettuce", "tomato", "cheese"],
-        image: "./images/burito.jpeg",
+        image: "burito.jpeg",
         allergies: ["dairy"],
         tags: ["Mexican", "Healthy", "Bowl"]
     },
@@ -364,7 +364,7 @@ const recipes = [
         calories: 420,
         healthScore: 60,
         ingredients: ["noodles", "vegetables", "soy sauce", "garlic", "chili"],
-        image: "./images/hakka.jpeg",
+        image: "hakka.jpeg",
         allergies: ["gluten", "soy"],
         tags: ["Chinese", "Quick", "Noodles"]
     },
@@ -380,7 +380,7 @@ const recipes = [
         calories: 450,
         healthScore: 58,
         ingredients: ["vegetables", "flour", "soy sauce", "garlic", "chili"],
-        image: "./images/manchurian.jpeg",
+        image: "manchurian.jpeg",
         allergies: ["gluten", "soy"],
         tags: ["Chinese", "Spicy", "Fried"]
     },
@@ -396,7 +396,7 @@ const recipes = [
         calories: 320,
         healthScore: 70,
         ingredients: ["vegetables", "wrapper", "soy sauce", "garlic"],
-        image: "./images/springroll.jpeg",
+        image: "springroll.jpeg",
         allergies: ["gluten", "soy"],
         tags: ["Chinese", "Quick", "Appetizer"]
     },
@@ -412,7 +412,7 @@ const recipes = [
         calories: 220,
         healthScore: 92,
         ingredients: ["lettuce", "tomato", "cucumber", "cheese", "olive oil"],
-        image: "./images/greeksalad.jpeg",
+        image: "greeksalad.jpeg",
         allergies: ["dairy"],
         tags: ["Continental", "Healthy", "Salad"]
     },
@@ -428,7 +428,7 @@ const recipes = [
         calories: 350,
         healthScore: 58,
         ingredients: ["bread", "egg", "milk", "sugar", "butter"],
-        image: "./images/frenchtoast.jpeg",
+        image: "frenchtoast.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Continental", "Breakfast", "Quick"]
     },
@@ -444,7 +444,7 @@ const recipes = [
         calories: 280,
         healthScore: 78,
         ingredients: ["lettuce", "chicken", "cheese", "croutons", "dressing"],
-        image: "./images/salad.jpeg",
+        image: "salad.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Continental", "Healthy", "Salad"]
     },
@@ -460,7 +460,7 @@ const recipes = [
         calories: 340,
         healthScore: 65,
         ingredients: ["bread", "cheese", "tomato", "butter", "vegetables"],
-        image: "./images/sandwitch.jpeg",
+        image: "sandwitch.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Continental", "Quick", "Sandwich"]
     },
@@ -476,7 +476,7 @@ const recipes = [
         calories: 480,
         healthScore: 60,
         ingredients: ["vegetables", "butter", "bread", "tomato", "onion"],
-        image: "./images/pav.jpeg",
+        image: "pav.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Street Food", "Mumbai Special", "Vegetarian"]
         },  // ← Make sure recipe ID 30 ends with comma
@@ -492,7 +492,7 @@ const recipes = [
         calories: 180,
         healthScore: 35,
         ingredients: ["milk powder", "flour", "sugar", "cardamom", "ghee"],
-        image: "./images/gulab.jpeg",
+        image: "gulab.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Indian Sweet", "Festival"]
     },
@@ -508,7 +508,7 @@ const recipes = [
         calories: 150,
         healthScore: 40,
         ingredients: ["paneer", "sugar", "milk", "cardamom"],
-        image: "./images/rasagullah.jpeg",
+        image: "rasagullah.jpeg",
         allergies: ["dairy"],
         tags: ["Dessert", "Bengali Sweet", "Spongy"]
     },
@@ -524,7 +524,7 @@ const recipes = [
         calories: 220,
         healthScore: 50,
         ingredients: ["rice", "milk", "sugar", "cardamom", "nuts"],
-        image: "./images/kheer.jpeg",
+        image: "kheer.jpeg",
         allergies: ["dairy", "nuts"],
         tags: ["Dessert", "Comfort Food", "Traditional"]
     },
@@ -540,7 +540,7 @@ const recipes = [
         calories: 200,
         healthScore: 30,
         ingredients: ["flour", "sugar", "yogurt", "saffron", "ghee"],
-        image: "./images/jalebi.jpeg",
+        image: "jalebi.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Street Food", "Crispy"]
     },
@@ -556,7 +556,7 @@ const recipes = [
         calories: 250,
         healthScore: 32,
         ingredients: ["chickpea flour", "ghee", "sugar", "cardamom"],
-        image: "./images/mysore.jpeg",
+        image: "mysore.jpeg",
         allergies: ["dairy"],
         tags: ["Dessert", "South Indian", "Festival"]
     },
@@ -572,7 +572,7 @@ const recipes = [
         calories: 240,
         healthScore: 48,
         ingredients: ["vermicelli", "milk", "sugar", "nuts", "cardamom"],
-        image: "./images/payasam.jpeg",
+        image: "payasam.jpeg",
         allergies: ["gluten", "dairy", "nuts"],
         tags: ["Dessert", "South Indian", "Traditional"]
     },
@@ -588,7 +588,7 @@ const recipes = [
         calories: 320,
         healthScore: 42,
         ingredients: ["cheese", "coffee", "egg", "sugar", "biscuits"],
-        image: "./images/tiramisu.jpeg",
+        image: "tiramisu.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Italian", "Coffee"]
     },
@@ -604,7 +604,7 @@ const recipes = [
         calories: 280,
         healthScore: 45,
         ingredients: ["cream", "milk", "sugar", "vanilla", "gelatin"],
-        image: "./images/pannacota.jpeg",
+        image: "pannacota.jpeg",
         allergies: ["dairy"],
         tags: ["Dessert", "Italian", "Creamy"]
     },
@@ -620,7 +620,7 @@ const recipes = [
         calories: 380,
         healthScore: 35,
         ingredients: ["chocolate", "butter", "egg", "flour", "sugar"],
-        image: "./images1/lava.jpeg",
+        image: "lava.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Chocolate", "Gooey"]
     },
@@ -636,7 +636,7 @@ const recipes = [
         calories: 420,
         healthScore: 38,
         ingredients: ["cheese", "cream", "biscuits", "sugar", "butter"],
-        image: "./images1/cheese.jpeg",
+        image: "cheese.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Baked", "Creamy"]
     },
@@ -652,7 +652,7 @@ const recipes = [
         calories: 350,
         healthScore: 40,
         ingredients: ["chocolate", "butter", "egg", "flour", "sugar"],
-        image: "./images1/brown.jpeg",
+        image: "brown.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Chocolate", "Baked"]
     },
@@ -668,7 +668,7 @@ const recipes = [
         calories: 320,
         healthScore: 52,
         ingredients: ["apple", "flour", "butter", "sugar", "cinnamon"],
-        image: "./images1/apple.jpeg",
+        image: "apple.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Pie", "Fruity"]
     },
@@ -684,7 +684,7 @@ const recipes = [
         calories: 280,
         healthScore: 42,
         ingredients: ["ice cream", "chocolate", "nuts", "cherry", "cream"],
-        image: "./images1/sundae.jpeg",
+        image: "sundae.jpeg",
         allergies: ["dairy", "nuts"],
         tags: ["Dessert", "Cold", "Quick"]
     },
@@ -700,7 +700,7 @@ const recipes = [
         calories: 310,
         healthScore: 38,
         ingredients: ["flour", "sugar", "butter", "cinnamon", "chocolate"],
-        image: "./images1/churros.jpeg",
+        image: "churros.jpeg",
         allergies: ["gluten", "dairy"],
         tags: ["Dessert", "Mexican", "Fried"]
     },
@@ -716,7 +716,7 @@ const recipes = [
         calories: 290,
         healthScore: 55,
         ingredients: ["rice", "mango", "coconut milk", "sugar"],
-        image: "./images1/mango.jpeg",
+        image: "mango.jpeg",
         allergies: [],
         tags: ["Dessert", "Thai", "Tropical"]
         },  // ← Make sure recipe ID 45 ends with comma
@@ -733,7 +733,7 @@ const recipes = [
         healthScore: 95,
         ingredients: ["quinoa", "chickpeas", "avocado", "spinach", "tomato"],
         allergies: ["gluten"],
-        image: "./images1/buddha.jpeg",
+        image: "buddha.jpeg",
         tags: ["Vegan", "Healthy", "Bowl"]
     },
     {
@@ -749,7 +749,7 @@ const recipes = [
         healthScore: 88,
         ingredients: ["tofu", "vegetables", "soy sauce", "garlic", "ginger"],
         allergies: ["soy"],
-        image: "./images1/stir.jpeg",
+        image: "stir.jpeg",
         tags: ["Vegan", "Quick", "Asian"]
     },
     {
@@ -765,7 +765,7 @@ const recipes = [
         healthScore: 82,
         ingredients: ["coconut milk", "vegetables", "curry leaves", "turmeric", "chili"],
         allergies: ["nuts"],
-        image: "./images1/vegcurry.jpeg",
+        image: "vegcurry.jpeg",
         tags: ["Vegan", "Curry", "Coconut"]
     },
     {
@@ -781,7 +781,7 @@ const recipes = [
         healthScore: 75,
         ingredients: ["pasta", "vegetables", "olive oil", "garlic", "basil"],
         allergies: ["gluten"],
-        image: "./images1/vegan.jpeg",
+        image: "vegan.jpeg",
         tags: ["Vegan", "Italian", "Pasta"]
     },
     {
@@ -797,7 +797,7 @@ const recipes = [
         healthScore: 80,
         ingredients: ["beans", "lettuce", "tomato", "avocado", "tortilla"],
         allergies: ["gluten"],
-        image: "./images1/veganta.jpeg",
+        image: "veganta.jpeg",
         tags: ["Vegan", "Mexican", "Quick"]
     },
     {
