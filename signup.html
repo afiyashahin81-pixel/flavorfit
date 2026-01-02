@@ -236,22 +236,31 @@
         return;
       }
 
-      fetch("https://favourfit-backend.onrender.com/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      })
-        .then(res => res.json().then(data => ({ ok: res.ok, data })))
-        .then(({ ok, data }) => {
-          if (!ok) {
-            alert("❌ " + (data.message || "Signup failed"));
-            return;
-          }
-          alert("✅ " + (data.message || "Signup successful"));
-          window.location.href = "login.html";
-        })
-        .catch(() => alert("❌ Server error"));
-    });
+     fetch("https://favourfit-backend.onrender.com/signup", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ email, password })
+})
+.then(async (res) => {
+  const text = await res.text();   // read response as text first
+  let data;
+  try { data = JSON.parse(text); } // try to parse JSON
+  catch { data = { message: text }; }
+
+  if (!res.ok) {
+    alert("❌ " + (data.message || "Signup failed"));
+    return;
+  }
+
+  alert("✅ " + (data.message || "Signup successful"));
+  window.location.href = "login.html";
+})
+.catch((err) => {
+  console.error(err);
+  alert("❌ Server error (check backend/CORS)");
+});
+
+
   </script>
 </body>
 </html>
