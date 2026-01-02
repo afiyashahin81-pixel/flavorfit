@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("userEmail", data.email || email);
 
         alert("✅ " + (data.message || "Login successful"));
-        window.location.href = "index.html";
+        window.location.href = "home.html";
       })
       .catch(() => alert("❌ Server error"));
   });
