@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlavorFit - Discover Your Perfect Recipe</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <!-- Animated Background -->
+<div class="animated-background">
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+</div>
+
+<!-- Floating Food Icons -->
+<div class="floating-food-icons">
+    <div class="food-icon">🍕</div>
+    <div class="food-icon">🍔</div>
+    <div class="food-icon">🍰</div>
+    <div class="food-icon">🍪</div>
+    <div class="food-icon">🌮</div>
+    <div class="food-icon">🍜</div>
+    <div class="food-icon">🍱</div>
+    <div class="food-icon">🥗</div>
+    <div class="food-icon">🍳</div>
+    <div class="food-icon">🥞</div>
+    <div class="food-icon">🍝</div>
+    <div class="food-icon">🍛</div>
+    <div class="food-icon">🥘</div>
+    <div class="food-icon">🍲</div>
+    <div class="food-icon">🥙</div>
+</div>
+
+
+    <!-- Navigation Bar -->
+    
+<nav class="navbar">
+    <div class="logo-section">
+        <img src="logo.jpeg" alt="FlavorFit Logo" style="width: 60px; height: 60px; border-radius: 12px; margin-right: 15px;">
+        <div class="app-name">
+            <h1 style="background: linear-gradient(135deg, #FF6B9D, #FFA500, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 28px; font-weight: 800; margin: 0;">FlavorFit</h1>
+            <p style="color: #8B7355; font-size: 13px; margin: 0; font-weight: 500; letter-spacing: 0.5px;">Cook, Eat, Repeat</p>
+        </div>
+    </div>
+
+    <div class="nav-links">
+        <a href="#" class="nav-item active" onclick="showPage('home')">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showPage('diet')">
+            <i class="fas fa-utensils"></i>
+            <span>Diet</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showPage('shopping')">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Shopping</span>
+        </a>
+        <a href="#" class="nav-item" onclick="showPage('favorites')">
+            <i class="fas fa-heart"></i>
+            <span>Favorites</span>
+        </a>
+    </div>
+
+    <div class="nav-icons">
+        <button class="icon-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+        <button class="icon-btn">
+            <i class="fas fa-globe"></i>
+        </button>
+        <button class="icon-btn">
+            <i class="fas fa-bell"></i>
+            <span class="notification-badge">3</span>
+        </button>
+        <button class="icon-btn user-icon">
+            US
+        </button>
+    </div>
+</nav>
+
+<!-- ========== MAIN CONTENT WRAPPER ========== -->
+<div id="mainContent">
+    <!-- Hero Section with Search -->
+    <section class="hero-section">
+       <h2 class="hero-title" style="font-size: 48px; font-weight: 700; color: #5D4E37; letter-spacing: -0.5px;">
+    Food for thought, <br>
+    <span class="gradient-text" style="background: linear-gradient(135deg, #FF6B9D, #FFA500, #FFD700); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">made with what you've got</span>
+</h2>
+
+        <p class="hero-subtitle">Find recipes by ingredients, mood, cuisine, or dietary preferences</p>
+
+        <div class="search-container">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search recipes by name, ingredients, cuisine...">
+                <button class="voice-btn" id="voiceBtn">
+                    <i class="fas fa-microphone"></i>
+                </button>
+                <button class="quick-add-btn" id="quickAddBtn">
+                    <i class="fas fa-plus"></i> Quick Add
+                </button>
+            </div>
+
+            <!-- Autocomplete Suggestions -->
+            <div class="suggestions" id="suggestions"></div>
+        </div>
+
+        <!-- Selected Ingredients -->
+        <div class="ingredient-section">
+            <div class="ingredient-chips" id="ingredientChips"></div>
+        </div>
+    </section>
+
+    <!-- Quick Add Modal -->
+    <div class="quick-add-modal" id="quickAddModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🥗 Select Ingredients</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="ingredient-grid" id="ingredientGrid">
+                <!-- Ingredient options will be here -->
+            </div>
+            <button class="add-ingredients-btn" id="addIngredientsBtn">
+                <i class="fas fa-check"></i> Add Selected Ingredients
+            </button>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <!-- First Row -->
+        <div class="filter-row">
+            <!-- When to Eat -->
+            <div class="filter-card card-purple">
+                <h3>
+                    <i class="fas fa-clock"></i>
+                    When do you want to eat?
+                </h3>
+                <div class="filter-options">
+                    <div class="filter-option selected" data-filter="time" data-value="all">
+                        <input type="checkbox" id="all-recipes" checked>
+                        <label for="all-recipes">All Recipes</label>
+                    </div>
+                    <div class="filter-option" data-filter="time" data-value="breakfast">
+                        <input type="checkbox" id="breakfast">
+                        <label for="breakfast">🌅 Breakfast</label>
+                    </div>
+                    <div class="filter-option" data-filter="time" data-value="lunch">
+                        <input type="checkbox" id="lunch">
+                        <label for="lunch">☀️ Lunch</label>
+                    </div>
+                    <div class="filter-option" data-filter="time" data-value="dinner">
+                        <input type="checkbox" id="dinner">
+                        <label for="dinner">🌙 Dinner</label>
+                    </div>
+                    <div class="filter-option" data-filter="time" data-value="quick">
+                        <input type="checkbox" id="quick-meals">
+                        <label for="quick-meals">⚡ Quick Meals</label>
+                    </div>
+                    <div class="filter-option" data-filter="time" data-value="weekend">
+                        <input type="checkbox" id="weekend">
+                        <label for="weekend">🎉 Weekend Special</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mood -->
+            <div class="filter-card card-pink">
+                <h3>
+                    <i class="fas fa-smile"></i>
+                    How are you feeling today?
+                    <span class="filter-subtitle">We'll recommend recipes based on your mood</span>
+                </h3>
+                <div class="filter-options">
+                    <div class="filter-option" data-filter="mood" data-value="not-well">
+                        <input type="checkbox" id="not-well">
+                        <label for="not-well">🤒 Not Well</label>
+                    </div>
+                    <div class="filter-option" data-filter="mood" data-value="happy">
+                        <input type="checkbox" id="happy">
+                        <label for="happy">😊 Happy</label>
+                    </div>
+                    <div class="filter-option" data-filter="mood" data-value="hungry">
+                        <input type="checkbox" id="hungry">
+                        <label for="hungry">🍴 Hungry</label>
+                    </div>
+                    <div class="filter-option" data-filter="mood" data-value="lazy">
+                        <input type="checkbox" id="lazy">
+                        <label for="lazy">😴 Lazy</label>
+                    </div>
+                    <div class="filter-option" data-filter="mood" data-value="romantic">
+                        <input type="checkbox" id="romantic">
+                        <label for="romantic">💕 Romantic</label>
+                    </div>
+                    <div class="filter-option" data-filter="mood" data-value="energetic">
+                        <input type="checkbox" id="energetic">
+                        <label for="energetic">⚡ Energetic</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cuisine -->
+            <div class="filter-card card-orange">
+                <h3>
+                    <i class="fas fa-globe-asia"></i>
+                    Cuisine Corner
+                </h3>
+                <div class="filter-options">
+                    <div class="filter-option" data-filter="cuisine" data-value="south-indian">
+                        <input type="checkbox" id="south-indian">
+                        <label for="south-indian">🌴 South Indian</label>
+                    </div>
+                    <div class="filter-option" data-filter="cuisine" data-value="north-indian">
+                        <input type="checkbox" id="north-indian">
+                        <label for="north-indian">🏔️ North Indian</label>
+                    </div>
+                    <div class="filter-option" data-filter="cuisine" data-value="italian">
+                        <input type="checkbox" id="italian">
+                        <label for="italian">🍕 Italian</label>
+                    </div>
+                    <div class="filter-option" data-filter="cuisine" data-value="mexican">
+                        <input type="checkbox" id="mexican">
+                        <label for="mexican">🌮 Mexican</label>
+                    </div>
+                    <div class="filter-option" data-filter="cuisine" data-value="chinese">
+                        <input type="checkbox" id="chinese">
+                        <label for="chinese">🥡 Chinese</label>
+                    </div>
+                    <div class="filter-option" data-filter="cuisine" data-value="continental">
+                        <input type="checkbox" id="continental">
+                        <label for="continental">🍽️ Continental</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Row -->
+        <div class="filter-row">
+            <!-- Diet Type -->
+            <div class="filter-card card-green">
+                <h3>
+                    <i class="fas fa-leaf"></i>
+                    Pick Your Plate?
+                </h3>
+                <div class="filter-options">
+                    <div class="filter-option" data-filter="diet" data-value="veg">
+                        <input type="checkbox" id="veg">
+                        <label for="veg">🌱 Vegetarian</label>
+                    </div>
+                    <div class="filter-option" data-filter="diet" data-value="non-veg">
+                        <input type="checkbox" id="non-veg">
+                        <label for="non-veg">🍗 Non-Veg</label>
+                    </div>
+                    <div class="filter-option" data-filter="diet" data-value="vegan">
+                        <input type="checkbox" id="vegan">
+                        <label for="vegan">🥬 Vegan</label>
+                    </div>
+                    <div class="filter-option" data-filter="diet" data-value="jain">
+                        <input type="checkbox" id="jain">
+                        <label for="jain">🙏 Jain</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spice Level -->
+            <div class="filter-card card-red">
+                <h3>
+                    <i class="fas fa-fire"></i>
+                    Spice Level
+                </h3>
+                <div class="filter-options">
+                    <div class="filter-option" data-filter="spice" data-value="mild">
+                        <input type="checkbox" id="mild">
+                        <label for="mild">😌 Mild</label>
+                    </div>
+                    <div class="filter-option" data-filter="spice" data-value="medium">
+                        <input type="checkbox" id="medium">
+                        <label for="medium">🌶️ Medium</label>
+                    </div>
+                    <div class="filter-option" data-filter="spice" data-value="hot">
+                        <input type="checkbox" id="hot">
+                        <label for="hot">🔥 Hot</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Allergies -->
+            <div class="filter-card card-blue">
+                <h3>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Allergies
+                </h3>
+                <div class="filter-options">
+                    <div class="filter-option" data-filter="allergy" data-value="seafood">
+                        <input type="checkbox" id="seafood">
+                        <label for="seafood">🦐 Seafood</label>
+                    </div>
+                    <div class="filter-option" data-filter="allergy" data-value="nuts">
+                        <input type="checkbox" id="nuts">
+                        <label for="nuts">🥜 Nuts</label>
+                    </div>
+                    <div class="filter-option" data-filter="allergy" data-value="dairy">
+                        <input type="checkbox" id="dairy">
+                        <label for="dairy">🥛 Dairy</label>
+                    </div>
+                    <div class="filter-option" data-filter="allergy" data-value="gluten">
+                        <input type="checkbox" id="gluten">
+                        <label for="gluten">🌾 Gluten</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipe Section (HOME PAGE ONLY) -->
+    <section class="recipe-section">
+        <div class="section-header">
+            <h2>
+                <i class="fas fa-utensils"></i>
+                Recommended Recipes
+            </h2>
+            <button class="view-all-btn">
+                View All <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <div class="recipe-grid" id="recipeGrid">
+            <!-- Recipes will be dynamically loaded here -->
+        </div>
+
+        <!-- No Recipes Found -->
+        <div class="no-recipes" id="noRecipes">
+            <i class="fas fa-search"></i>
+            <h3>No Recipes Found</h3>
+            <p>Try adjusting your filters or search for different ingredients</p>
+        </div>
+    </section>
+
+</div> <!-- ⬅️ Close mainContent wrapper -->
+<!-- ========== END MAIN CONTENT ========== -->
+
+<!-- ========== FAVORITES SECTION (NOW OUTSIDE mainContent) ========== -->
+<div class="page-section" id="favoritesSection" style="display: none;">
+    <div class="section-header">
+        <h2><i class="fas fa-heart"></i> My Favorite Recipes</h2>
+        <button class="clear-all-btn" onclick="clearAllFavorites()">
+            <i class="fas fa-trash"></i> Clear All
+        </button>
+    </div>
+    
+    <div class="favorites-count" id="favoritesCount">0 recipes</div>
+    
+    <div class="recipe-grid" id="favoritesGrid">
+        <!-- Favorites will be loaded here -->
+    </div>
+    
+    <div class="empty-state" id="favoritesEmpty" style="display: none;">
+        <div class="empty-icon">💔</div>
+        <h3>No Favorites Yet</h3>
+        <p>Start adding recipes you love by clicking the heart icon!</p>
+        <button class="primary-btn" onclick="showPage('home')">
+            <i class="fas fa-utensils"></i> Browse Recipes
+        </button>
+    </div>
+</div>
+
+<!-- ========== SHOPPING LIST SECTION (NOW OUTSIDE mainContent) ========== -->
+<section class="recipe-section" id="shoppingSection" style="display: none;">
+    <div class="section-header">
+        <h2><i class="fas fa-shopping-cart"></i> My Shopping List</h2>
+        <button class="clear-all-btn" onclick="clearShoppingList()">
+            <i class="fas fa-trash"></i> Clear All
+        </button>
+    </div>
+    
+    <!-- Add Item Form -->
+    <div class="add-item-form" style="background: white; padding: 20px; border-radius: 15px; margin: 0 20px 20px 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+            <input type="text" id="manualItemInput" placeholder="Add item (e.g., Milk, Eggs, Bread, Sugar...)" 
+                   style="flex: 1; min-width: 250px; padding: 12px 20px; border: 2px solid #667eea; border-radius: 10px; font-size: 15px; outline: none;">
+            <button onclick="addManualItem()" 
+                    style="padding: 12px 25px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 8px;"
+                    onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(102,126,234,0.4)'"
+                    onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <i class="fas fa-plus"></i> Add Item
+            </button>
+        </div>
+        <div style="margin-top: 10px; font-size: 13px; color: #666;">
+            💡 <strong>Quick Add:</strong> Type any ingredient and press Enter or click Add Item
+        </div>
+    </div>
+    
+    <div class="shopping-stats">
+        <div class="stat-box">
+            <i class="fas fa-list"></i>
+            <div>
+                <span class="stat-number" id="totalItems">0</span>
+                <span class="stat-label">Total Items</span>
+            </div>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-check-circle"></i>
+            <div>
+                <span class="stat-number" id="checkedItems">0</span>
+                <span class="stat-label">Checked</span>
+            </div>
+        </div>
+        <div class="stat-box">
+            <i class="fas fa-clock"></i>
+            <div>
+                <span class="stat-number" id="pendingItems">0</span>
+                <span class="stat-label">Pending</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="shopping-container">
+        <div class="shopping-categories" id="shoppingCategories">
+            <!-- Categories will be loaded here -->
+        </div>
+        
+        <div class="shopping-empty" id="shoppingEmpty">
+            <div class="empty-icon">🛒</div>
+            <h3>Shopping List is Empty</h3>
+            <p>Add ingredients from recipes or type items manually above!</p>
+            <button class="primary-btn" onclick="showPage('home')">
+                <i class="fas fa-utensils"></i> Browse Recipes
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- ========== DIET/MEAL PLAN SECTION (NOW OUTSIDE mainContent) ========== -->
+<div class="page-section" id="dietSection" style="display: none; min-height: 100vh; padding: 20px;">
+    
+    <!-- Hero Header -->
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 25px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(102,126,234,0.3); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        
+        <div style="position: relative; z-index: 1;">
+            <h1 style="color: white; font-size: 36px; margin: 0 0 10px 0; font-weight: 800;">🍽️ Smart Diet Planner</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 18px; margin: 0;">AI-Powered Meal Planning for Your Health Goals</p>
+        </div>
+    </div>
+    
+    <!-- Goal Cards -->
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 30px;">
+        <div class="goal-card" onclick="setQuickGoal('loss')" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%); padding: 25px; border-radius: 20px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 20px rgba(255,107,107,0.3);">
+            <div style="font-size: 48px; margin-bottom: 10px;">🔥</div>
+            <h3 style="color: white; margin: 0 0 8px 0; font-size: 20px;">Weight Loss</h3>
+            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 14px;">Burn fat, feel great!</p>
+        </div>
+        
+        <div class="goal-card" onclick="setQuickGoal('maintain')" style="background: linear-gradient(135deg, #10ac84 0%, #1dd1a1 100%); padding: 25px; border-radius: 20px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 20px rgba(16,172,132,0.3);">
+            <div style="font-size: 48px; margin-bottom: 10px;">💪</div>
+            <h3 style="color: white; margin: 0 0 8px 0; font-size: 20px;">Stay Healthy</h3>
+            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 14px;">Maintain your balance</p>
+        </div>
+        
+        <div class="goal-card" onclick="setQuickGoal('gain')" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 25px; border-radius: 20px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 20px rgba(240,147,251,0.3);">
+            <div style="font-size: 48px; margin-bottom: 10px;">🏋️</div>
+            <h3 style="color: white; margin: 0 0 8px 0; font-size: 20px;">Muscle Gain</h3>
+            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 14px;">Build strength & size</p>
+        </div>
+        
+        <div class="goal-card" onclick="setQuickGoal('auto')" style="background: linear-gradient(135deg, #ffa502 0%, #ff6348 100%); padding: 25px; border-radius: 20px; cursor: pointer; transition: all 0.3s; box-shadow: 0 5px 20px rgba(255,165,2,0.3);">
+            <div style="font-size: 48px; margin-bottom: 10px;">🎯</div>
+            <h3 style="color: white; margin: 0 0 8px 0; font-size: 20px;">Auto Detect</h3>
+            <p style="color: rgba(255,255,255,0.9); margin: 0; font-size: 14px;">Let AI decide for you</p>
+        </div>
+    </div>
+    
+    <!-- Input Form -->
+    <div style="background: white; padding: 35px; border-radius: 25px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+        <h2 style="margin: 0 0 25px 0; color: #2d3436; display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 28px;">📊</span> Your Details
+        </h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 25px;">
+            <div>
+                <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 8px; font-size: 14px;">Age (years)</label>
+                <input type="number" id="userAge" value="21" min="10" max="100"
+                       style="width: 100%; padding: 14px 18px; border: 3px solid #e8e8e8; border-radius: 12px; font-size: 16px; font-weight: 600; transition: all 0.3s;"
+                       onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e8e8e8'">
+            </div>
+            
+            <div>
+                <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 8px; font-size: 14px;">Weight (kg)</label>
+                <input type="number" id="userWeight" value="42" min="30" max="200"
+                       style="width: 100%; padding: 14px 18px; border: 3px solid #e8e8e8; border-radius: 12px; font-size: 16px; font-weight: 600; transition: all 0.3s;"
+                       onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e8e8e8'">
+            </div>
+            
+            <div>
+                <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 8px; font-size: 14px;">Height (cm)</label>
+                <input type="number" id="userHeight" value="160" min="100" max="250"
+                       style="width: 100%; padding: 14px 18px; border: 3px solid #e8e8e8; border-radius: 12px; font-size: 16px; font-weight: 600; transition: all 0.3s;"
+                       onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e8e8e8'">
+            </div>
+            
+            <div>
+                <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 8px; font-size: 14px;">Activity Level</label>
+                <select id="activityLevel" style="width: 100%; padding: 14px 18px; border: 3px solid #e8e8e8; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                    <option value="sedentary">😴 Sedentary</option>
+                    <option value="light" selected>🚶 Light Active</option>
+                    <option value="moderate">🏃 Moderate</option>
+                    <option value="active">💪 Very Active</option>
+                </select>
+            </div>
+            
+            <div>
+                <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 8px; font-size: 14px;">Diet Preference</label>
+                <select id="dietPref" style="width: 100%; padding: 14px 18px; border: 3px solid #e8e8e8; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                    <option value="any">🍽️ Any</option>
+                    <option value="veg" selected>🌱 Vegetarian</option>
+                    <option value="non-veg">🍗 Non-Veg</option>
+                    <option value="vegan">🥬 Vegan</option>
+                </select>
+            </div>
+            
+            <div>
+                <label style="font-weight: 600; color: #667eea; display: block; margin-bottom: 8px; font-size: 14px;">Your Goal</label>
+                <select id="userGoal" style="width: 100%; padding: 14px 18px; border: 3px solid #e8e8e8; border-radius: 12px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                    <option value="auto" selected>🎯 Auto Detect</option>
+                    <option value="loss">🔥 Weight Loss</option>
+                    <option value="maintain">💪 Maintain</option>
+                    <option value="gain">🏋️ Muscle Gain</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Generate Button -->
+        <button onclick="generateWeeklyPlan()" 
+                style="width: 100%; padding: 18px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 15px; font-size: 18px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 12px; transition: all 0.3s; box-shadow: 0 8px 25px rgba(102,126,234,0.4);"
+                onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 12px 35px rgba(102,126,234,0.5)'"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 25px rgba(102,126,234,0.4)'">
+            <i class="fas fa-magic" style="font-size: 20px;"></i>
+            <span>Generate My Perfect Meal Plan</span>
+        </button>
+    </div>
+    
+    <!-- BMI Result Card -->
+    <div id="bmiResult" style="display: none; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(102,126,234,0.3);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 25px;">
+            <div style="text-align: center;">
+                <div style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 5px;">Your BMI</div>
+                <div style="color: white; font-size: 42px; font-weight: 800;" id="bmiValue">0</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 5px;">Category</div>
+                <div style="color: white; font-size: 24px; font-weight: 700;" id="bmiCategory">Normal</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 5px;">Daily Target</div>
+                <div style="color: white; font-size: 24px; font-weight: 700;" id="calorieTarget">2000 kcal</div>
+            </div>
+            <div style="text-align: center;">
+                <div style="color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 5px;">Recommended</div>
+                <div style="color: white; font-size: 24px; font-weight: 700;" id="recommendedGoal">Weight Loss</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Weekly Plan Container -->
+    <div id="weeklyPlanContainer" style="display: none;">
+        <div style="background: white; padding: 35px; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h2 style="margin: 0 0 8px 0; color: #2d3436; display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 32px;">🗓️</span> Your 7-Day Meal Plan
+                    </h2>
+                    <p style="margin: 0; color: #636e72; font-size: 14px;">Click any meal to view full recipe details</p>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button onclick="generateWeeklyPlan()" class="secondary-btn" style="padding: 12px 20px; background: #f8f9fa; border: 2px solid #dee2e6; border-radius: 12px; font-weight: 600; cursor: pointer; transition: all 0.3s;">
+                        <i class="fas fa-sync"></i> Regenerate
+                    </button>
+                    <button onclick="addWeekToShopping()" class="primary-btn" style="padding: 12px 24px; background: linear-gradient(135deg, #10ac84 0%, #1dd1a1 100%); color: white; border: none; border-radius: 12px; font-weight: 600; cursor: pointer; box-shadow: 0 5px 15px rgba(16,172,132,0.3); transition: all 0.3s;">
+                        <i class="fas fa-shopping-cart"></i> Add All to Shopping
+                    </button>
+                </div>
+            </div>
+            <div id="weeklyPlanTable"></div>
+        </div>
+    </div>
+    
+    <!-- Empty State -->
+    <div id="dietEmptyState" style="text-align: center; padding: 80px 20px; background: white; border-radius: 25px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+        <div style="font-size: 100px; margin-bottom: 25px; animation: bounce 2s infinite;">🍽️</div>
+        <h2 style="color: #2d3436; margin-bottom: 15px; font-size: 32px; font-weight: 700;">Ready to Transform Your Diet?</h2>
+        <p style="color: #636e72; margin-bottom: 35px; font-size: 18px; max-width: 600px; margin-left: auto; margin-right: auto;">Fill in your details above and click "Generate" to get a personalized 7-day meal plan tailored just for you!</p>
+        <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+            <div style="padding: 15px 25px; background: rgba(102,126,234,0.1); border-radius: 12px; color: #667eea; font-weight: 600;">✅ BMI Calculation</div>
+            <div style="padding: 15px 25px; background: rgba(16,172,132,0.1); border-radius: 12px; color: #10ac84; font-weight: 600;">✅ Calorie Tracking</div>
+            <div style="padding: 15px 25px; background: rgba(255,107,107,0.1); border-radius: 12px; color: #ff6b6b; font-weight: 600;">✅ Smart Recipes</div>
+        </div>
+    </div>
+</div>
+
+<style>
+.goal-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2) !important;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+
+</style>
+
+
+
+<!-- Recipe Details Modal -->
+<div class="recipe-modal" id="recipeModal">
+    <div class="recipe-modal-content">
+        <button class="close-recipe-modal" id="closeRecipeModal">&times;</button>
+        
+        <div class="recipe-modal-body" id="recipeModalBody">
+            <!-- Content will be dynamically loaded here -->
+        </div>
+    </div>
+</div>
+
+<!-- Cooking Mode Modal -->
+<div class="cooking-mode-modal" id="cookingModeModal">
+    <div class="cooking-mode-container">
+        <!-- Header -->
+        <div class="cooking-mode-header">
+            <div class="recipe-cooking-title" id="cookingRecipeTitle">Masala Dosa</div>
+            <div class="cooking-controls">
+                <button class="cooking-control-btn" id="exitCookingBtn" title="Exit Cooking Mode">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="cooking-progress-container">
+            <div class="cooking-progress-bar">
+                <div class="cooking-progress-fill" id="cookingProgressFill"></div>
+            </div>
+            <div class="cooking-progress-text" id="cookingProgressText">Step 1 of 5</div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="cooking-mode-content">
+            <!-- Ingredients Checklist (Left Side) -->
+            <div class="cooking-ingredients-panel">
+                <h3><i class="fas fa-list-check"></i> Ingredients</h3>
+                <div class="cooking-ingredients-list" id="cookingIngredientsList">
+                    <!-- Ingredients will be loaded here -->
+                </div>
+            </div>
+
+            <!-- Current Step (Center) -->
+            <div class="cooking-main-panel">
+                <div class="current-step-number" id="currentStepNumber">Step 1</div>
+                <div class="current-step-text" id="currentStepText">
+                    Heat oil in a pan over medium flame and let it warm up for 30 seconds
+                </div>
+
+                <!-- Timer Display -->
+                <div class="cooking-timer" id="cookingTimer" style="display: none;">
+                    <div class="timer-icon">⏱️</div>
+                    <div class="timer-display" id="timerDisplay">5:00</div>
+                    <button class="timer-skip-btn" id="timerSkipBtn">Skip Timer</button>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="cooking-navigation">
+                    <button class="cooking-nav-btn" id="prevStepBtn" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button class="cooking-nav-btn primary" id="nextStepBtn">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Voice Status -->
+                <div class="voice-status" id="voiceStatus">
+                    <div class="voice-indicator">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <div class="voice-text">Say "Next" or click microphone to speak</div>
+                </div>
+
+                <!-- Voice Button -->
+                <button class="voice-listen-btn" id="voiceListenBtn">
+                    <i class="fas fa-microphone"></i>
+                    <span>Tap to Speak</span>
+                </button>
+            </div>
+
+            <!-- Quick Help Panel (Right Side) -->
+            <div class="cooking-help-panel">
+                <h3><i class="fas fa-life-ring"></i> Quick Help</h3>
+                <div class="help-buttons">
+                    <button class="help-btn" onclick="handleEmergency('burning')">
+                        🔥 It's Burning
+                    </button>
+                    <button class="help-btn" onclick="handleEmergency('salty')">
+                        🧂 Too Salty
+                    </button>
+                    <button class="help-btn" onclick="handleEmergency('spicy')">
+                        🌶️ Too Spicy
+                    </button>
+                    <button class="help-btn" onclick="handleEmergency('watery')">
+                        💧 Too Watery
+                    </button>
+                </div>
+
+                <div class="voice-commands-list">
+                    <h4>Voice Commands:</h4>
+                    <ul>
+                        <li>"Next step"</li>
+                        <li>"Previous"</li>
+                        <li>"Repeat"</li>
+                        <li>"Pause" / "Resume"</li>
+                        <li>"Help"</li>
+                        <li>"What ingredients?"</li>
+                        <li>"Which step?"</li>
+                        <li>"Start over"</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- All Steps List (Bottom) -->
+        <div class="all-steps-panel">
+            <button class="toggle-steps-btn" id="toggleStepsBtn">
+                <i class="fas fa-list"></i> Show All Steps
+            </button>
+            <div class="all-steps-list" id="allStepsList" style="display: none;">
+                <!-- All steps will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Chatbot -->
+    <div class="chatbot-icon" id="chatbotIcon">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h3>🤖 FlavorFit Assistant</h3>
+            <button class="close-chat" id="closeChat">&times;</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="chat-message bot-message">
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    Hi! I'm your FlavorFit assistant 👋 Ask me anything about recipes, ingredients, or cooking tips!
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Type your question...">
+            <button class="send-btn" id="sendBtn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+// Wait for everything to load
+window.addEventListener('load', function() {
+    console.log('🚀 Initializing nav icons...');
+    
+    // Get all icon buttons using the correct selector
+    const allButtons = document.querySelectorAll('.icon-btn');
+    console.log('✓ Found', allButtons.length, 'icon buttons');
+    
+    // Button 1: Dark Mode (Moon icon)
+    if (allButtons[0]) {
+        allButtons[0].addEventListener('click', function() {
+            console.log('Dark mode clicked!');
+            alert('🌙 Dark Mode Toggle\n\nFeature coming soon!');
+        });
+        console.log('✓ Dark mode button ready');
+    }
+    
+    // Button 2: Language (Globe icon)
+    if (allButtons[1]) {
+        allButtons[1].addEventListener('click', function() {
+            console.log('Language clicked!');
+            const langs = ['English', 'हिंदी', 'தமிழ்', 'Español'];
+            const random = langs[Math.floor(Math.random() * langs.length)];
+            alert('🌐 Language Selector\n\nCurrent: English\nAvailable: ' + langs.join(', '));
+        });
+        console.log('✓ Language button ready');
+    }
+    
+    // Button 3: Notifications (Bell icon)
+    if (allButtons[2]) {
+        allButtons[2].addEventListener('click', function() {
+            console.log('Notifications clicked!');
+            const badge = document.querySelector('.notification-badge');
+            
+            alert('🔔 Notifications\n\n1. 🎉 New recipe: Chocolate Cake\n2. 🔥 Trending: Paneer Tikka\n3. 📊 Weekly meal plan ready!');
+            
+            // Hide notification badge
+            if (badge) {
+                badge.style.display = 'none';
+                // Show again after 3 seconds
+                setTimeout(() => {
+                    badge.style.display = 'block';
+                }, 3000);
+            }
+        });
+        console.log('✓ Notification button ready');
+    }
+    
+    // Button 4: User Profile (US button)
+    if (allButtons[3]) {
+        allButtons[3].addEventListener('click', function() {
+            console.log('Profile clicked!');
+            const choice = prompt('👤 User Menu\n\n1. View Profile\n2. Settings\n3. My Favorites\n4. Help\n5. Logout\n\nEnter number (1-5):');
+            
+            switch(choice) {
+                case '1':
+                    alert('👤 Profile\n\nName: User\nEmail: user@flavorfit.com\nJoined: Jan 2026');
+                    break;
+                case '2':
+                    alert('⚙️ Settings\n\nNotifications: ON\nLanguage: English\nTheme: Light');
+                    break;
+                case '3':
+                    showPage('favorites');
+                    break;
+                case '4':
+                    alert('📞 Help\n\nEmail: support@flavorfit.com\nPhone: 1800-FLAVOR');
+                    break;
+                case '5':
+                    if (confirm('Logout?')) {
+                        alert('👋 Logged out!');
+                    }
+                    break;
+            }
+        });
+        console.log('✓ Profile button ready');
+    }
+    
+    console.log('✅ All nav icons are ready!');
+});
+</script>
+<!-- ================== NOTIFICATIONS MODAL ================== -->
+<div id="notifModal" class="ff-modal" style="display:none;">
+  <div class="ff-modal-card">
+    <div class="ff-modal-header">
+      <h3 style="margin:0;">🔔 Notifications</h3>
+      <button id="notifCloseBtn" class="ff-icon-btn" aria-label="Close">✕</button>
+    </div>
+
+    <div id="notifBody" class="ff-modal-body">
+      <!-- JS will inject notifications here -->
+    </div>
+
+    <div class="ff-modal-actions">
+      <button id="notifMarkReadBtn" class="ff-btn ff-btn-primary">Mark as read</button>
+      <button id="notifOkBtn" class="ff-btn ff-btn-ghost">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Optional badge example (put near your notification icon) -->
+<span class="notification-badge">3</span>
+
+
+</body>
+</html>

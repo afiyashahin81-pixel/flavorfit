@@ -1,0 +1,28 @@
+{
+    "name": "flavurfitbackend",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "afiya",
+    "contributors": [],
+    "dependencies": {
+        "bcrypt": "^6.0.0",
+        "body-parser": "^2.2.1",
+        "cors": "^2.8.5",
+        "express": "^5.2.1",
+        "openai": "^6.13.0"
+    },
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "license": "ISC",
+    "type": "commonjs"
+}
